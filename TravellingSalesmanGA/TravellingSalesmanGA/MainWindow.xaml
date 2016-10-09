@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Travelling Salesman Problem" Height="550" Width="800">
     <Grid>
-        <Canvas HorizontalAlignment="Left" Height="500" Margin="10,10,0,0" VerticalAlignment="Top" Width="550" Background="#FFECECEC"/>
+        <Canvas HorizontalAlignment="Left" Height="490" Margin="10,10,0,0" VerticalAlignment="Top" Width="550" Background="#FFECECEC"/>
+        <Slider x:Name="sliderMutation" HorizontalAlignment="Left" Margin="565,37,0,0" VerticalAlignment="Top" Width="164" Maximum="0.2" LargeChange="0.05" IsDirectionReversed="True" TickPlacement="BottomRight" TickFrequency="0.01"  IsSnapToTickEnabled="True" RenderTransformOrigin="0.357,0.258"/>
+        <RadioButton x:Name="radioElite" Content="Eliteism" HorizontalAlignment="Left" Margin="569,70,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMutation" Content="Mutation Rate" HorizontalAlignment="Left" Margin="565,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMutation" HorizontalAlignment="Left" Height="23" Margin="734,37,0,0" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Width="48"/>
     </Grid>
 </Window>
