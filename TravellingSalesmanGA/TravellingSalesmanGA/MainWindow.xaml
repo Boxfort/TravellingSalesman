@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravellingSalesmanGA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Travelling Salesman Problem" Height="550" Width="800">
     <Grid>
-        
+        <Canvas HorizontalAlignment="Left" Height="500" Margin="10,10,0,0" VerticalAlignment="Top" Width="550" Background="#FFECECEC"/>
     </Grid>
 </Window>
