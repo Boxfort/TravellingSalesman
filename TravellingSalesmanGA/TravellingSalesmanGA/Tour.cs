@@ -71,7 +71,6 @@ namespace TravellingSalesmanGA
 
                     tourDistance += _tour[i].distanceTo(_tour[nextCity]);
                 }
-
                 return tourDistance;
             }
 
