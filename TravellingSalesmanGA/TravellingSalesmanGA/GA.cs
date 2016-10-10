@@ -122,5 +122,35 @@ namespace TravellingSalesmanGA
 
             return tournament.getFittest();
         }
+
+        public double MutationRate
+        {
+            get { return _mutationRate; }
+            set
+            {
+                if (value <= 1 && value >= 0)
+                {
+                    _mutationRate = value;
+                }
+            }
+        }
+
+        public int TournamentSize
+        {
+            get { return _tournamentSize; }
+            set
+            {
+                if (value <= TourManager.numberOfCities() && value > 0)
+                {
+                    _tournamentSize = value;
+                }
+            }
+        }
+
+        public bool Elitism
+        {
+            get { return _elitism; }
+            set { _elitism = value; }
+        }
     }
 }
