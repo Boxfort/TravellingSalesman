@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace TravellingSalesmanGA
 {
@@ -14,12 +15,15 @@ namespace TravellingSalesmanGA
 
         public static Population evolvePopulation(Population oldPopulation)
         {
-            Population newPopulation = new Population(oldPopulation.populationCount());
+            Debug.WriteLine("BEGIN!");
+
+            Population newPopulation = new Population(oldPopulation.populationCount(), false);
             int offset = 0;
 
             if(_elitism)
             {
                 newPopulation.addTour(0, oldPopulation.getFittest());
+                
                 offset = 1;
             }
 
@@ -31,11 +35,16 @@ namespace TravellingSalesmanGA
                 Tour child = crossover(parent1, parent2);
 
                 newPopulation.addTour(i, child);
+
+                Debug.WriteLine("New generation success");
             }
 
             for(int i = offset; i < newPopulation.populationCount(); i++)
             {
-                newPopulation.addTour(i, mutate(newPopulation.getTour(i)));
+                Tour mutated = mutate(newPopulation.getTour(i));
+                newPopulation.addTour(i, mutated);
+
+                Debug.WriteLine("Mutation Success");
             }
 
             return newPopulation;
@@ -67,7 +76,7 @@ namespace TravellingSalesmanGA
 
         //Takes a set of parents and creates a child tour.
         private static Tour crossover(Tour parent1, Tour parent2)
-        {
+        { 
             Tour child = new Tour();
             Random rand = new Random(DateTime.Now.Millisecond);
 
@@ -110,7 +119,9 @@ namespace TravellingSalesmanGA
 
         private static Tour tournamentSelection(Population population)
         {
-            Population tournament = new Population();
+            // !! BIG ERROR IN HERE SOMEWHERE OH GOD !! 
+
+            Population tournament = new Population(_tournamentSize, false);
 
             //Fill the tournament population with random tours from the given population
             //If the tournament size is larger, weak individuals have a smaller chance to be selected.

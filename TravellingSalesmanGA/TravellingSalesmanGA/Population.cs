@@ -8,18 +8,23 @@ namespace TravellingSalesmanGA
 {
     class Population
     {
-        private List<Tour> _tours = new List<Tour>();
+        private Tour[] _tours;
 
         public Population() { }
 
-        public Population(int populationSize)
+        public Population(int populationSize, bool init)
         {
-            for(int i = 0; i < populationSize; i++)
+            _tours = new Tour[populationSize];
+
+            if (init)
             {
-                Tour tour = new Tour();
-                tour.generateRandomTour();
-                _tours.Add(tour);
-            }
+                for (int i = 0; i < populationSize; i++)
+                {
+                    Tour tour = new Tour();
+                    tour.generateRandomTour();
+                    _tours[i] = tour;
+                }
+            }               
         }
  
         public void addTour(int index, Tour tour)

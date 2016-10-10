@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Travelling Salesman Problem" Height="550" Width="800">
     <Grid>
-        <Canvas HorizontalAlignment="Left" Height="490" Margin="10,10,0,0" VerticalAlignment="Top" Width="550" Background="#FFECECEC"/>
+        <Canvas x:Name="canvasMain" HorizontalAlignment="Left" Height="490" Margin="10,10,0,0" VerticalAlignment="Top" Width="550" Background="#FFECECEC"/>
         <Slider x:Name="sliderMutation" HorizontalAlignment="Left" Margin="565,37,0,0" VerticalAlignment="Top" Width="164" Maximum="0.2" LargeChange="0.05" IsDirectionReversed="True" TickFrequency="0.01"  IsSnapToTickEnabled="True" RenderTransformOrigin="0.357,0.258" ValueChanged="sliderMutation_ValueChanged"/>
         <Label x:Name="lblMutation" Content="Mutation Rate" HorizontalAlignment="Left" Margin="565,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtMutation" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="734,37,0,0" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Width="48"/>
@@ -20,7 +20,7 @@
         <Slider x:Name="sliderTournament" HorizontalAlignment="Left" Margin="565,226,0,0" VerticalAlignment="Top" Width="164" LargeChange="0.05" IsDirectionReversed="True" TickFrequency="1" IsSnapToTickEnabled="True" RenderTransformOrigin="0.357,0.258" SmallChange="0" ValueChanged="sliderTournament_ValueChanged"/>
         <Label x:Name="lblTournament" Content="Tournament Size" HorizontalAlignment="Left" Margin="565,199,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtTournament" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="734,226,0,0" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Width="48"/>
-        <Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="636,306,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="636,306,0,0" VerticalAlignment="Top" Width="75" Click="btnGenerate_Click"/>
         <Label x:Name="lblStart" Content="Initial Distance " HorizontalAlignment="Left" Margin="571,366,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblFinal" Content="Final Distance  " HorizontalAlignment="Left" Margin="571,397,0,0" VerticalAlignment="Top" Width="95"/>
         <Label x:Name="lblTime" Content="Time Taken     " HorizontalAlignment="Left" Margin="571,428,0,0" VerticalAlignment="Top" Width="101"/>
