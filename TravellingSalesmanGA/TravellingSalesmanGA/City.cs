@@ -24,14 +24,25 @@ namespace TravellingSalesmanGA
             _y = y;
         }
 
+        //Calculate distance between this city and another.
+        public double distanceTo(City city)
+        {
+            int xDistance = Math.Abs(_x - city.X);
+            int yDistance = Math.Abs(_y - city.Y);
+
+            return Math.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
+        }
+
         public int X
         {
             get { return _x; }
+            set { _x = value; }
         }
 
         public int Y
         {
             get { return _y;  }
+            set { _y = value; }
         }
     }
 }
