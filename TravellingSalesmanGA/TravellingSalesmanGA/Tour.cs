@@ -9,14 +9,14 @@ namespace TravellingSalesmanGA
     class Tour
     {
         //Holds each traversal between cities
-        private City[] _tour;
+        private List<City> _tour = new List<City>();
 
         private double _fitness = 0;
         private int _distance = 0;
 
         public Tour()
         {
-            for(int i = 0; i < numCities; i++)
+            for(int i = 0; i < TourManager.numberOfCities(); i++)
             {
                 _tour.Add(null);
             }
