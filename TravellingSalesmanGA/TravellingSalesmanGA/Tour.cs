@@ -9,12 +9,12 @@ namespace TravellingSalesmanGA
     class Tour
     {
         //Holds each traversal between cities
-        private List<City> _tour = new List<City>();
+        private City[] _tour;
 
         private double _fitness = 0;
         private int _distance = 0;
 
-        public Tour(int numCities)
+        public Tour()
         {
             for(int i = 0; i < numCities; i++)
             {
