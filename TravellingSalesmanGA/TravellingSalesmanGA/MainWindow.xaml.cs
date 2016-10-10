@@ -69,5 +69,10 @@ namespace TravellingSalesmanGA
 
             txtTournament.Text = sliderTournament.Value.ToString();
         }
+
+        private void checkElite_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
