@@ -46,5 +46,10 @@ namespace TravellingSalesmanGA
 
             return fittest;
         }
+
+        public int populationCount()
+        {
+            return _tours.Count();
+        }
     }
 }

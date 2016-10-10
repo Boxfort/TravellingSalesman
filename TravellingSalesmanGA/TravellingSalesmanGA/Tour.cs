@@ -42,7 +42,7 @@ namespace TravellingSalesmanGA
         //Shuffles list into a random order.
         private void shuffleTour()
         {
-            Random rand = new Random();
+            Random rand = new Random(DateTime.Now.Millisecond);
 
             for(int i = 0; i < _tour.Count(); i++)
             {
