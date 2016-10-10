@@ -30,6 +30,49 @@ namespace TravellingSalesmanGA
             }
         }
 
+        //Takes a set of parents and creates a child tour.
+        private static Tour crossover(Tour parent1, Tour parent2)
+        {
+            Tour child = new Tour();
+            Random rand = new Random(DateTime.Now.Millisecond);
+
+            int startPos = rand.Next(0, parent1.tourSize());
+            int endPos = rand.Next(0, parent1.tourSize());
+
+            //Swap the positions.
+            if (startPos > endPos)
+            {
+                int temp = startPos;
+                startPos = endPos;
+                endPos = temp;
+            }
+
+            //Add a random portion of parents1's tour to the child.
+            for(int i = startPos; i < endPos; i++)
+            {
+                child.setCity(i, parent1.getCity(i));
+            }
+
+            //Add the remaining cities in the tour from parent2, in the order they appear
+            for(int i = 0; i < parent2.tourSize(); i++)
+            {
+                if(!child.containsCity(parent2.getCity(i)))
+                {
+                    for (int j = 0; j < child.tourSize(); j++)
+                    {
+                        // Spare position found, add city
+                        if (child.getCity(j) == null)
+                        {
+                            child.setCity(j, parent2.getCity(i));
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return child;
+        }
+
         private static Tour tournamentSelection(Population population)
         {
             Population tournament = new Population();

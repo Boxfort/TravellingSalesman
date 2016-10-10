@@ -90,5 +90,10 @@ namespace TravellingSalesmanGA
         {
             return _tour[index];
         }
+
+        public int tourSize()
+        {
+            return _tour.Count();
+        }
     }
 }
