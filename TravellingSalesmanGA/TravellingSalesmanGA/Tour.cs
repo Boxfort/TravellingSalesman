@@ -12,7 +12,7 @@ namespace TravellingSalesmanGA
         private List<City> _tour = new List<City>();
 
         private double _fitness = 0;
-        private int _distance = 0;
+        private double _distance = 0;
 
         public Tour()
         {
@@ -53,9 +53,38 @@ namespace TravellingSalesmanGA
             }
         }
 
+        public bool containsCity(City city)
+        {
+            return _tour.Contains(city);
+        }
+
+        public double getDistance()
+        {
+            if (_distance == 0)
+            {
+                double tourDistance = 0;
+
+                for(int i = 0; i < _tour.Count(); i++)
+                {
+                    //If we're at the end of the tour, go back to the first city.
+                    int nextCity = (i + 1 < _tour.Count()) ? i : 0;
+
+                    tourDistance += _tour[i].distanceTo(_tour[nextCity]);
+                }
+
+                return tourDistance;
+            }
+
+            return _distance;
+        }
+
         public void setCity(int index, City city)
         {
             _tour[index] = city;
+
+            //List has been modified, reset distance + fitness
+            _distance = 0;
+            _fitness = 0;
         }
 
         public City getCity(int index)
