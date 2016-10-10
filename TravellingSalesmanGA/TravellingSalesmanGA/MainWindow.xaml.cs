@@ -58,7 +58,8 @@ namespace TravellingSalesmanGA
                 return;
 
             txtPopulation.Text = sliderPopulation.Value.ToString();
-            sliderTournament.Maximum = sliderPopulation.Value / 2;
+            sliderTournament.Maximum = (int) sliderPopulation.Value / 2;
+            txtTournament.Text = sliderTournament.Value.ToString();
         }
 
         private void sliderTournament_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
