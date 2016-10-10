@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GA.cs" />
     <Compile Include="Population.cs" />
     <Compile Include="Tour.cs" />
     <Compile Include="TourManager.cs" />
