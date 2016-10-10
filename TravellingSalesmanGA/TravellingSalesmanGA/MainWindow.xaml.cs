@@ -20,9 +20,53 @@ namespace TravellingSalesmanGA
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool initialising;
+
         public MainWindow()
         {
+            initialising = true;
+
             InitializeComponent();
+
+            txtMutation.Text = sliderMutation.Minimum.ToString();
+            txtGenerations.Text = sliderGenerations.Minimum.ToString();
+            txtPopulation.Text = sliderPopulation.Minimum.ToString();
+            txtTournament.Text = sliderTournament.Minimum.ToString();
+
+            initialising = false;
+        }
+
+        private void sliderMutation_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (initialising)
+                return;
+
+            txtMutation.Text = sliderMutation.Value.ToString();
+        }
+
+        private void sliderGenerations_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (initialising)
+                return;
+
+            txtGenerations.Text = sliderGenerations.Value.ToString();
+        }
+
+        private void sliderPopulation_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (initialising)
+                return;
+
+            txtPopulation.Text = sliderPopulation.Value.ToString();
+            sliderTournament.Maximum = sliderPopulation.Value / 2;
+        }
+
+        private void sliderTournament_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (initialising)
+                return; 
+
+            txtTournament.Text = sliderTournament.Value.ToString();
         }
     }
 }
