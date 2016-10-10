@@ -8,7 +8,9 @@ namespace TravellingSalesmanGA
 {
     class Population
     {
-        private List<Tour> tours = new List<Tour>();
+        private List<Tour> _tours = new List<Tour>();
+
+        public Population() { }
 
         public Population(int populationSize)
         {
@@ -16,8 +18,33 @@ namespace TravellingSalesmanGA
             {
                 Tour tour = new Tour();
                 tour.generateRandomTour();
-                tours.Add(tour);
+                _tours.Add(tour);
             }
+        }
+ 
+        public void addTour(int index, Tour tour)
+        {
+            _tours[index] = tour;
+        }
+
+        public Tour getTour(int index)
+        {
+            return _tours[index];
+        }
+
+        public Tour getFittest()
+        {
+            Tour fittest = _tours[0];
+
+            for(int i = 1; i < _tours.Count(); i++)
+            {
+                if(fittest.getDistance() <= _tours[i].getDistance())
+                {
+                    fittest = getTour(i);
+                }
+            }
+
+            return fittest;
         }
     }
 }
