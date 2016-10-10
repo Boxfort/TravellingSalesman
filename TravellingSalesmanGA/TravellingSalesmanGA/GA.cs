@@ -123,7 +123,7 @@ namespace TravellingSalesmanGA
             return tournament.getFittest();
         }
 
-        public double MutationRate
+        public static double MutationRate
         {
             get { return _mutationRate; }
             set
@@ -135,7 +135,7 @@ namespace TravellingSalesmanGA
             }
         }
 
-        public int TournamentSize
+        public static int TournamentSize
         {
             get { return _tournamentSize; }
             set
@@ -147,7 +147,7 @@ namespace TravellingSalesmanGA
             }
         }
 
-        public bool Elitism
+        public static bool Elitism
         {
             get { return _elitism; }
             set { _elitism = value; }

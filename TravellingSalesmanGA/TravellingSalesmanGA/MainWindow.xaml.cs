@@ -72,7 +72,7 @@ namespace TravellingSalesmanGA
 
         private void checkElite_Checked(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
