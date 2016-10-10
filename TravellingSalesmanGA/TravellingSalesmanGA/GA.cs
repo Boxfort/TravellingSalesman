@@ -27,7 +27,42 @@ namespace TravellingSalesmanGA
             {
                 Tour parent1 = tournamentSelection(oldPopulation);
                 Tour parent2 = tournamentSelection(oldPopulation);
+
+                Tour child = crossover(parent1, parent2);
+
+                newPopulation.addTour(i, child);
             }
+
+            for(int i = offset; i < newPopulation.populationCount(); i++)
+            {
+                newPopulation.addTour(i, mutate(newPopulation.getTour(i)));
+            }
+
+            return newPopulation;
+        }
+
+        private static Tour mutate(Tour tour)
+        {
+            //TODO: Only beneficial mutations ?
+
+            Random rand = new Random(DateTime.Now.Millisecond);
+
+            for(int i = 0; i < tour.tourSize(); i++)
+            {
+                //If mutation then swap two random cities in the tour.
+                if (rand.NextDouble() < _mutationRate)
+                {
+                    int j = (int)rand.NextDouble() * tour.tourSize();
+
+                    City city1 = tour.getCity(i);
+                    City city2 = tour.getCity(j);
+
+                    tour.setCity(i, city2);
+                    tour.setCity(j, city1);
+                }
+            }
+
+            return tour;
         }
 
         //Takes a set of parents and creates a child tour.
